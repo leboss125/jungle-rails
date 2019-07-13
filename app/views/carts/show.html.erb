@@ -31,10 +31,10 @@
       </tfoot>
     </table>
   </div>
-
   <div class="row">
     <div class="col-xs-12">
       <%= form_tag orders_path do %>
+      <% if cart_subtotal_cents > 0  %>
         <script
           src="https://checkout.stripe.com/checkout.js" class="stripe-button"
           data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
@@ -45,8 +45,11 @@
           data-email="kvirani@gmail.com"
           data-currency="cad">
         </script>
+        <% else %>
+
+        <h3> please add more items to your cart</h3>
+        <% end %>
       <% end %>
     </div>
   </div>
-
 </section>

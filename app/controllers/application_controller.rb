@@ -36,5 +36,13 @@ class ApplicationController < ActionController::Base
     end
   
     helper_method :current_user
+    
+
+    private
+    def authenticate 
+      authenticate_or_request_with_http_basic do |username, password|
+        username == ENV['NAME'] && password == ENV['PASS']
+    end
   
+  end
   end

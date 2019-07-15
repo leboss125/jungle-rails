@@ -16,8 +16,6 @@ Rails.application.routes.draw do
     root to: 'dashboard#show'
     resources :products, except: [:edit, :update, :show]
     resources :categories, only: [:edit, :update, :show]
-    resources :products
-    resources :categories
   end
 
   get '/login' => 'sessions#new'
